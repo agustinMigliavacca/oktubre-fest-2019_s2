@@ -1,0 +1,10 @@
+import marcas.*
+import personas.*
+
+test "jarra" {
+
+	const jarra = new Jarras(capacidad = 0.5, marca = Hofbrau)
+	
+
+
+}
