@@ -4,23 +4,24 @@ class Marcas {
 	
 }
 
-class Corona inherits Marcas {
-	var property graduacion
+class CervezaRubia inherits Marcas {
+	var property graduacion 
 }
 
-class Guiness inherits Marcas {
+class CervezaNegra inherits Marcas {
 	
 	
 	method graduacion() {
-		return graduacionReglamentaria.graduacion().min(lupulo * 2)
+		return graduacionReglamentaria.graduacion().min(lupulo * 2) 
 	}
 }
 
 object  graduacionReglamentaria {
-	var property graduacion
+	var property graduacion = 0.08
+	
 } 
 
-class Hofbrau inherits Guiness {
+class CervezaRoja inherits CervezaNegra {
 	override method graduacion() {
 		return super() * 1.25
 	}
@@ -29,7 +30,12 @@ class Hofbrau inherits Guiness {
 
 
 class Jarras {
-	var property marca
 	var property capacidad
-	
+	var property marca
+
+	method alcohol() {
+		 return capacidad * marca.graduacion() 
+
+	}
+
 }

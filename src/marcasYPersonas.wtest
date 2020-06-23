@@ -1,10 +1,24 @@
 import marcas.*
 import personas.*
 
-test "jarra" {
-
-	const jarra = new Jarras(capacidad = 0.5, marca = Hofbrau)
+test "parte1" {
+	const cerveza1 = new CervezaRoja(lupulo = 6, pais = "alemania")
+	graduacionReglamentaria.graduacion()
+	const jarra = new Jarras(capacidad = 0.5, marca = cerveza1)
 	
+	assert.equals(0.05, jarra.alcohol())
 
 
+	
+	const tincho = new Belgas(peso = 70, escuchaTradicional = false, nivelDeAguante = 20 )
+	tincho.comprar(jarra)
+	tincho.comprar(jarra)
+	tincho.comprar(jarra)
+	
+	assert.equals(0.15, tincho.ingerido())	
+	
+	
+	assert.notThat(tincho.estaEbria())
+	
+	assert.that(tincho.leGusta(cerveza1))
 }
