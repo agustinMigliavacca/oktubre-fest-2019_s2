@@ -22,6 +22,10 @@ class Persona {
 		return self.ingerido() * peso  > nivelDeAguante
 	}	
 	
+	method quiereEntrar(carpa) {
+		return 
+	}
+	
 }
 
 
