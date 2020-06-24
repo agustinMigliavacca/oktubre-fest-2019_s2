@@ -1,0 +1,16 @@
+import personas.*
+import carpas.*
+import marcas.*
+
+test "testX" {
+	const cerveza1 = new CervezaRoja(lupulo = 6, pais = "alemania")
+
+	
+	const tincho = new Belgas(peso = 70, escuchaTradicional = true, nivelDeAguante = 20 )
+	const carpa1 = new Carpas(limiteDeGente = 20, tieneBanda = true, vendeCerveza = true, cervezaQueVende = cerveza1 )
+	assert.that(carpa1.quiereEntrar(tincho))
+	carpa1.gente(tincho)
+	const titi = new Alemanes(peso = 70, escuchaTradicional = true, nivelDeAguante = 30)
+	assert.notThat(carpa1.quiereEntrar(titi))
+
+}

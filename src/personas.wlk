@@ -1,5 +1,5 @@
 import marcas.*
-
+import carpas.*
 
 
 class Persona {
@@ -23,7 +23,16 @@ class Persona {
 	}	
 	
 	method quiereEntrar(carpa) {
-		return 
+		return self.leGusta(carpa.cervezaQueVende())
+		
+		and self.escuchaTradicional() == carpa.tieneBanda() 
+		
+		
+		}
+	
+	
+	method leGusta(cerveza) {
+		return true	
 	}
 	
 }
@@ -31,7 +40,7 @@ class Persona {
 
 
 class Belgas inherits Persona {
-	method leGusta(cerveza) {
+	override method leGusta(cerveza) {
 		return cerveza.lupulo() > 4
 	}
 
@@ -39,14 +48,16 @@ class Belgas inherits Persona {
 }
 
 class Checos inherits Persona {
-	method leGusta(cerveza) {
+	override method leGusta(cerveza) {
 		return cerveza.graduacion() > 8
 	}
 	
 }
 
 class Alemanes inherits Persona {
-	method leGusta(cerveza) {
-		return true	
+	   override method quiereEntrar(carpa) {
+        return super(carpa) and carpa.capacidadPar()
 	}
-}
+	
+	}
+
